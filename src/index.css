@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Golden theme */
+    --background: 0 0% 0%;
+    --foreground: 48 100% 67%;
+    --golden: 48 100% 67%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 48 100% 67%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 48 100% 67%;
+    --primary-foreground: 0 0% 8%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 48 100% 67%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 48 50% 50%;
+
+    --accent: 180 100% 60%;
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 280 100% 70%;
+
+    /* Custom neon colors */
+    --neon-purple: 280 100% 70%;
+    --neon-cyan: 180 100% 60%;
+    --neon-pink: 320 100% 70%;
+    --neon-green: 120 100% 60%;
+    
+    /* Glow effects */
+    --glow-purple: 0 0 20px hsla(280, 100%, 70%, 0.3);
+    --glow-cyan: 0 0 20px hsla(180, 100%, 60%, 0.3);
+    --glow-card: 0 0 30px hsla(280, 100%, 70%, 0.1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as root since we're dark by default */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-mono;
+    background: hsl(0 0% 0%);
+    color: hsl(var(--golden));
+    min-height: 100vh;
+  }
+
+  /* Glow text utilities */
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .text-glow-purple {
+    color: hsl(var(--golden));
+    text-shadow: 0 0 10px hsl(var(--golden) / 0.5);
+  }
+
+  .text-glow-cyan {
+    color: hsl(var(--golden));
+    text-shadow: 0 0 10px hsl(var(--golden) / 0.5);
+  }
+
+  .text-glow-golden {
+    color: hsl(var(--golden));
+    text-shadow: 0 0 15px hsl(var(--golden) / 0.7);
+  }
+
+  .ring-golden {
+    ring-color: hsl(var(--golden));
+    box-shadow: 0 0 20px hsl(var(--golden) / 0.5);
+  }
+
+  .text-golden {
+    color: hsl(var(--golden));
+  }
+
+  /* Card glow effects */
+  .card-glow {
+    box-shadow: var(--glow-card), 0 0 0 1px hsla(280, 100%, 70%, 0.1);
+  }
+
+  /* Neon button effects */
+  .btn-neon {
+    box-shadow: 0 0 20px hsla(280, 100%, 70%, 0.3);
+    border: 1px solid hsl(var(--neon-purple));
+  }
+
+  .btn-neon:hover {
+    box-shadow: 0 0 30px hsla(280, 100%, 70%, 0.5);
+  }
+}
