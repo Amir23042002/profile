@@ -13,7 +13,11 @@ export const useServiceWorker = () => {
           console.log('Service Worker registered:', registration);
         })
         .catch((error) => {
-          console.error('Service Worker registration failed:', error);
+          if (error.message && error.message.includes('Service Workers are not yet supported on StackBlitz')) {
+            console.warn('Service Workers are not supported in this environment (StackBlitz)');
+          } else {
+            console.error('Service Worker registration failed:', error);
+          }
         });
     }
   }, []);
