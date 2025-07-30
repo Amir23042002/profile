@@ -7,22 +7,6 @@ export const useServiceWorker = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .then((registration) => {
-          console.log('Service Worker registered:', registration);
-        })
-        .catch((error) => {
-          if (error.message && error.message.includes('Service Workers are not yet supported on StackBlitz')) {
-            console.warn('Service Workers are not supported in this environment (StackBlitz)');
-          } else {
-            console.error('Service Worker registration failed:', error);
-          }
-        });
-    }
-  }, []);
-
-  useEffect(() => {
     const updateServiceWorkerAuth = async () => {
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
         let profile: UserProfile | null = null;
